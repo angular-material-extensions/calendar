@@ -16,14 +16,102 @@
 [![Greenkeeper Badge](https://badges.greenkeeper.io/angular-material-extensions/calendar.svg)](https://greenkeeper.io/)
 [![license](https://img.shields.io/github/license/angular-material-extensions/calendar.svg?style=flat-square)](https://github.com/angular-material-extensions/calendar/blob/master/LICENSE)
 
+## Built by and for developers :heart:
+Do you have any question or suggestion ? Please do not hesitate to contact us!
+Alternatively, provide a PR | open an appropriate issue [here](https://github.com/angular-material-extensions/password-strength/issues)
+
+If did you like this project, support [angular-material-extensions](https://github.com/angular-material-extensions) 
+by starring :star: and sharing it :loudspeaker:
+
+## Table of Contents
+- [Demo](#demo)
+- [Components](#components)
+- [Dependencies](#dependencies)
+- [Peer Dependencies](#peerDependencies)
+- [Additional Requirements - material (Include a theme)](#additional-requirements-material-theme)
+- [Additional Requirements - material icons](#additional-requirements-material-icons)
+- [Installation](#installation)
+- [API](#api)
+- [Usage](#usage)
+- [Documentation](#documentation)
+- [Run Demo App Locally](#run-demo-app-locally)
+- [Development](#development)
+- [Other Angular Libraries](#other-angular-libraries)
+- [Support](#support)
+- [License](#license)
+
 ## Demo
 
 View all the directives in action at https://angular-material-extensions.github.io/calendar
 
 ## Dependencies
-* [Angular](https://angular.io) (*requires* Angular 2 or higher, tested with 2.0.0)
+* [Angular](https://angular.io) developed and tested with `6.1.78`
 
-## Installation
+---
+
+<a name="peerDependencies"/>
+
+## Requirements (peer dependencies):
+- [angular animations v6.1.8](https://www.npmjs.com/package/@angular/animations)
+- [angular forms v6.1.8](https://www.npmjs.com/package/@angular/forms)
+- [angular cdk v6.4.7](https://www.npmjs.com/package/@angular/cdk)
+- [angular material v6.4.7](https://www.npmjs.com/package/@angular/material)
+
+- [angular material theme](https://material.angular.io/guide/getting-started#step-4-include-a-theme)
+- [angular material icons](https://material.angular.io/guide/getting-started#step-6-optional-add-material-icons)
+
+```bash
+npm i @angular/cdk @angular/material @angular/animations @angular/forms 
+```
+
+or use `angular schematics` like e.g:
+
+```bash
+ng add @angular/material 
+```
+
+---
+
+
+<a name="additional-requirements-material-theme"/>
+
+### Additional requirements Theme (Material Design)
+- [angular material theme](https://material.angular.io/guide/getting-started#step-4-include-a-theme)
+
+<a name="additional-requirements-material-icons"/>
+
+## Additional Requirements - Import the material design icons [learn more](https://material.angular.io/guide/getting-started#step-6-optional-add-material-icons)
+
+- The easiest way to import material design icons is to provide a link in your `index.html` file like below:
+
+```html
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
+- alternative solution:
+
+1. Install of the official npm module of the material design icons
+
+```bash
+npm i -s material-design-icons
+```
+
+2. Import them in your `angular.json` file
+
+```json
+"styles": [
+        "styles.css",
+        "../node_modules/material-design-icons/iconfont/material-icons.css"
+      ],
+```  
+
+
+----
+
+<a name="installation"/>
+
+##  [Installation](https://angular-material-extensions.github.io/password-strength/getting-started)
+
 Install above dependencies via *npm*. 
 
 Now install `@angular-material-extensions/calendar` via:
@@ -158,7 +246,9 @@ This project is supported by [jetbrains](https://www.jetbrains.com/) with 1 ALL 
 
 ---
 
+<a name="license"/>
+
 ## License
 
-Copyright (c) 2018 Anthony Nahas. Licensed under the MIT License (MIT)
+Copyright (c) 2018 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (MIT)
 
