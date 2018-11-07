@@ -11,6 +11,8 @@
     "suppressImplicitAnyIndexErrors": true,
     "skipLibCheck": true,
     "stripInternal": true,
+//    "allowSyntheticDefaultImports": true,
+//    "esModuleInterop": true,
     "lib": [
       "es2015",
       "dom"
