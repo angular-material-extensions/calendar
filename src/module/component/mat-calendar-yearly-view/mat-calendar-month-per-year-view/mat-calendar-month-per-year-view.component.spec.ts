@@ -1,6 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {MatCardModule} from '@angular/material';
+import {MatCardModule, NativeDateAdapter} from '@angular/material';
 import {MatCalendarMonthPerYearViewComponent} from './mat-calendar-month-per-year-view.component';
 
 describe('MatCalendarMonthPerYearViewComponent', () => {
@@ -10,7 +10,12 @@ describe('MatCalendarMonthPerYearViewComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [MatCardModule],
-      declarations: [MatCalendarMonthPerYearViewComponent, MatCalendarMonthPerYearViewComponent]
+      declarations:
+        [
+          MatCalendarMonthPerYearViewComponent,
+          MatCalendarMonthPerYearViewComponent
+        ],
+      providers: [NativeDateAdapter]
     })
       .compileComponents();
   }));
