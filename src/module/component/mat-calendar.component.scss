@@ -1,13 +1,18 @@
-.title{
-  font-size: 2em;
+:host {
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background: white;
+  border: solid 1px #cccccc;
+  margin-bottom: 10px;
 }
 
-.highlight{
-  background-color: green;
-  opacity: 0.5;
+mat-toolbar {
+  button {
+    margin: 0 4px;
+  }
 }
 
-.description{
-  color: grey;
-  font-size: 1em;
+.full-width {
+  flex: 1 1 auto;
 }
