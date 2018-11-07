@@ -1,0 +1,15 @@
+.day {
+  margin: 0.25rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.sunday {
+  color: red;
+}
+
+.mat-calendar-table-header-divider::after {
+  background: violet;
+}
