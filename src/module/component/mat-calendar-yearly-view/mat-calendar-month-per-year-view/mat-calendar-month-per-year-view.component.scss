@@ -10,6 +10,42 @@
   color: red;
 }
 
+:host {
+  display: block;
+}
+
+$mat-calendar-padding: 8px !default;
+$mat-calendar-header-divider-width: 1px !default;
+$mat-calendar-controls-vertical-padding: 5%;
+
+.mat-calendar-table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.mat-calendar-table-header th {
+  text-align: center;
+  padding: 0 0 $mat-calendar-padding 0;
+}
+
+.mat-calendar-table-header-divider {
+  position: relative;
+  height: $mat-calendar-header-divider-width;
+
+  // We use an absolutely positioned pseudo-element as the divider line for the table header so we
+  // can extend it all the way to the edge of the calendar.
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -$mat-calendar-padding;
+    right: -$mat-calendar-padding;
+    height: $mat-calendar-header-divider-width;
+  }
+}
+
 .mat-calendar-table-header-divider::after {
-  background: violet;
+  //background: mat-color($foreground, divider);
+  background: mat-color(grey, divider);
 }

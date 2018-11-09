@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit, Optional} from '@angular/core';
 import * as _moment from 'moment';
-import {NativeDateAdapter} from '@angular/material';
+import {MAT_DATE_FORMATS, MatCalendarCell, MatDateFormats, NativeDateAdapter} from '@angular/material';
 
 const moment = _moment;
 
@@ -11,14 +11,28 @@ const moment = _moment;
 })
 export class MatCalendarMonthPerYearViewComponent implements OnInit {
 
+  @Input()
+  month: number;
+
+  private _activeDate: Date;
+
+  /** The number of blank cells in the first row before the 1st of the month. */
+  _firstWeekOffset: number;
+
+  /** The date of the month that today falls on. Null if today is in another month. */
+  _todayDate: number | null;
+
   /** The names of the weekdays. */
   _weekdays: { long: string, narrow: string }[];
 
-  month: number;
+  /** Grid of calendar cells representing the dates of the month. */
+  _weeks: MatCalendarCell[][];
+
   monthMatrix: [number, Array<number>] = [7, []];
   currentDate: Date = new Date();
 
-  constructor(public nativeDateAdapter: NativeDateAdapter) {
+  constructor(@Optional() @Inject(MAT_DATE_FORMATS) private _dateFormats: MatDateFormats,
+              public nativeDateAdapter: NativeDateAdapter) {
 
     const firstDayOfWeek = this.nativeDateAdapter.getFirstDayOfWeek();
     const narrowWeekdays = this.nativeDateAdapter.getDayOfWeekNames('narrow');
@@ -31,13 +45,25 @@ export class MatCalendarMonthPerYearViewComponent implements OnInit {
     });
 
     this._weekdays = weekdays.slice(firstDayOfWeek).concat(weekdays.slice(0, firstDayOfWeek));
+    this._todayDate = this._getDateInCurrentMonth(this.nativeDateAdapter.today());
 
     console.log('this._weekdays = ', this._weekdays);
   }
 
   ngOnInit() {
-    this.currentDate.setMonth(this.month);
-    this.fillTheMonthMatrix();
+    if (!this.month) {
+      this.month = new Date().getMonth();
+      this.currentDate.setMonth(this.month);
+      this._todayDate = this._getDateInCurrentMonth(this.nativeDateAdapter.today());
+      const firstOfMonth = this.nativeDateAdapter.createDate(this.nativeDateAdapter.getYear(this.currentDate),
+        this.nativeDateAdapter.getMonth(this.currentDate), 1);
+      this._firstWeekOffset =
+        (7 + this.nativeDateAdapter.getDayOfWeek(firstOfMonth) -
+          this.nativeDateAdapter.getFirstDayOfWeek()) % 7;
+      this._createWeekCells();
+      // console.log(this._weeks);
+      this.fillTheMonthMatrix();
+    }
   }
 
   fillTheMonthMatrix(): void {
@@ -48,16 +74,40 @@ export class MatCalendarMonthPerYearViewComponent implements OnInit {
     console.log('summary -> start is', start.toObject(), 'and the end is ', end.toObject());
     // console.log(`summary -> start is ${start.weekday()} and the end is ${end.weekday()}`);
     console.log(`summary -> start is ${start.toDate()} and the end is ${end.toDate()}`);
-
-    // let clonedStartDate = start.clone();
-
-    // while (clonedStartDate.date < end.date && clonedStartDate.months == end.months) {
-    //   console.log('matrix = ', this.monthMatrix);
-    //   // this.monthMatrix.push(2,)
-    //   // this.monthMatrix[clonedStartDate.weekday()].push(clonedStartDate.date);
-    //   console.log('clonedStartDate = ', clonedStartDate);
-    //   clonedStartDate = clonedStartDate.add(1, 'day');
-    // }
   }
 
+  /**
+   * Gets the date in this month that the given Date falls on.
+   * Returns null if the given Date is in another month.
+   */
+  private _getDateInCurrentMonth(date: Date | null): number | null {
+    return date && this._hasSameMonthAndYear(date, this.currentDate) ?
+      this.nativeDateAdapter.getDate(date) : null;
+  }
+
+  /** Checks whether the 2 dates are non-null and fall within the same month of the same year. */
+  private _hasSameMonthAndYear(d1: Date | null, d2: Date | null): boolean {
+    return !!(d1 && d2 && this.nativeDateAdapter.getMonth(d1) === this.nativeDateAdapter.getMonth(d2) &&
+      this.nativeDateAdapter.getYear(d1) === this.nativeDateAdapter.getYear(d2));
+  }
+
+  /** Creates MatCalendarCells for the dates in this month. */
+  private _createWeekCells() {
+    const daysInMonth = this.nativeDateAdapter.getNumDaysInMonth(this.currentDate);
+    const dateNames = this.nativeDateAdapter.getDateNames();
+    this._weeks = [[]];
+    for (let i = 0, cell = this._firstWeekOffset; i < daysInMonth; i++, cell++) {
+      if (cell === 7) {
+        this._weeks.push([]);
+        cell = 0;
+      }
+      const date = this.nativeDateAdapter.createDate(
+        this.nativeDateAdapter.getYear(this.currentDate),
+        this.nativeDateAdapter.getMonth(this.currentDate), i + 1);
+      // const enabled = this._shouldEnableDate(date);
+      // const ariaLabel = this.nativeDateAdapter.format(date, this._dateFormats.display.dateA11yLabel);
+      this._weeks[this._weeks.length - 1]
+        .push(new MatCalendarCell(i + 1, dateNames[i], 'ariaLabel', false));
+    }
+  }
 }

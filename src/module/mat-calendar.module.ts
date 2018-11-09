@@ -8,7 +8,8 @@ import {
   MatRippleModule,
   MatToolbarModule,
   MatMenuModule,
-  MatCardModule
+  MatCardModule,
+  MatCalendarBody
 } from '@angular/material';
 
 import {MatCalendarComponent} from './component/mat-calendar.component';
@@ -41,6 +42,7 @@ export {MatCalendarService} from './service/mat-calendar.service';
   exports: [MatCalendarComponent],
   declarations:
     [
+      MatCalendarBody,
       MatCalendarComponent,
       MatCalendarYearlyViewComponent,
       MatCalendarMonthPerYearViewComponent,
