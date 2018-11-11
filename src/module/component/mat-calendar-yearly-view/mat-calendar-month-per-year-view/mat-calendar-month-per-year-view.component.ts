@@ -1,4 +1,4 @@
-import {Component, Inject, Input, OnInit, Optional} from '@angular/core';
+import {Component, Inject, Input, OnInit, Optional, ViewEncapsulation} from '@angular/core';
 import * as _moment from 'moment';
 import {MAT_DATE_FORMATS, MatCalendarCell, MatDateFormats, NativeDateAdapter} from '@angular/material';
 
@@ -7,12 +7,13 @@ const moment = _moment;
 @Component({
   selector: 'mat-calendar-month-pre-year-view',
   templateUrl: './mat-calendar-month-per-year-view.component.html',
-  styleUrls: ['./mat-calendar-month-per-year-view.component.scss']
+  styleUrls: ['./mat-calendar-month-per-year-view.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MatCalendarMonthPerYearViewComponent implements OnInit {
 
   @Input()
-  month: number;
+  month: number = new Date().getMonth();
 
   private _activeDate: Date;
 
@@ -51,19 +52,17 @@ export class MatCalendarMonthPerYearViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (!this.month) {
-      this.month = new Date().getMonth();
-      this.currentDate.setMonth(this.month);
-      this._todayDate = this._getDateInCurrentMonth(this.nativeDateAdapter.today());
-      const firstOfMonth = this.nativeDateAdapter.createDate(this.nativeDateAdapter.getYear(this.currentDate),
-        this.nativeDateAdapter.getMonth(this.currentDate), 1);
-      this._firstWeekOffset =
-        (7 + this.nativeDateAdapter.getDayOfWeek(firstOfMonth) -
-          this.nativeDateAdapter.getFirstDayOfWeek()) % 7;
-      this._createWeekCells();
-      // console.log(this._weeks);
-      this.fillTheMonthMatrix();
-    }
+    console.log('input month = ', this.month);
+    this.currentDate.setMonth(this.month);
+    this._todayDate = this._getDateInCurrentMonth(this.nativeDateAdapter.today());
+    const firstOfMonth = this.nativeDateAdapter.createDate(this.nativeDateAdapter.getYear(this.currentDate),
+      this.nativeDateAdapter.getMonth(this.currentDate), 1);
+    this._firstWeekOffset =
+      (7 + this.nativeDateAdapter.getDayOfWeek(firstOfMonth) -
+        this.nativeDateAdapter.getFirstDayOfWeek()) % 7;
+    this._createWeekCells();
+    // console.log(this._weeks);
+    this.fillTheMonthMatrix();
   }
 
   fillTheMonthMatrix(): void {

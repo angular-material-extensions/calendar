@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card mat-ripple>
   <mat-card-header>
     <mat-card-title>{{currentDate |date : "MMMM"}}</mat-card-title>
   </mat-card-header>
@@ -13,7 +13,7 @@
       </tr>
       </thead>
       <tbody mat-calendar-body
-             [label]="_monthLabel"
+             [label]=""
              [rows]="_weeks"
              [todayValue]="_todayDate"
              [selectedValue]="_selectedDate"

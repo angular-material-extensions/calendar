@@ -10,8 +10,35 @@
   color: red;
 }
 
+mat-card {
+  height: 100%;
+}
+
 :host {
   display: block;
+  ::ng-deep {
+    .mat-calendar-table td.mat-calendar-body-label {
+      display: none;
+    }
+  }
+}
+
+:host ::ng-deep .mat-calendar-body.mat-calendar-body-label {
+  display: none;
+}
+
+.mat-calendar-body td.mat-calendar-body-label {
+  display: none;
+}
+
+.mat-calendar-body-label {
+  display: none;
+}
+
+td {
+  .mat-calendar-body-label {
+    display: none;
+  }
 }
 
 $mat-calendar-padding: 8px !default;
