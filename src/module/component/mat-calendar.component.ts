@@ -11,6 +11,6 @@ export class MatCalendarComponent {
 
   currentDate: Date = new Date();
   selectedDate: Date;
-  view: MatCalendarView = 'monthly';
+  view: MatCalendarView = 'yearly';
 }
 

@@ -27,8 +27,8 @@
   </mat-menu>
 </mat-toolbar>
 <div #content [ngSwitch]="view">
-  <div *ngSwitchCase="'yearly'">
+  <ng-container *ngSwitchCase="'yearly'">
     <mat-calendar-yearly-view></mat-calendar-yearly-view>
-  </div>
+  </ng-container>
   <div *ngSwitchDefault>{{currentDate | date : 'LLLL'}}</div>
 </div>
