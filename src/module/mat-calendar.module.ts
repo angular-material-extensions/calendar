@@ -23,6 +23,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {NativeDateAdapter} from '@angular/material';
 
 // Export module's public API
+export {MatCalendarView} from './type/mat-calendar-view.type';
 export {MatCalendarComponent} from './component/mat-calendar.component';
 export {MatCalendarService} from './service/mat-calendar.service';
 
