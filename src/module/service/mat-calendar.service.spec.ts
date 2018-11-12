@@ -13,9 +13,4 @@ describe('MatCalendarService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should say hello to stranger', inject([MatCalendarService], (service: MatCalendarService) => {
-    expect(service.sayHello()).toBe('Hello Stanger!');
-  }));
-
-
 });
