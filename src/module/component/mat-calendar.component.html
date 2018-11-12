@@ -1,8 +1,9 @@
 <!--headr - toolbar-->
+
 <mat-toolbar color="primary">
   <div [ngSwitch]="view">
-    <span *ngSwitchCase="'yearly'">{{currentDate | date : 'yyyy'}}</span>
-    <span *ngSwitchDefault>{{currentDate | date : 'LLLL'}}</span>
+    <span *ngSwitchCase="'yearly'">{{selectedDate.getFullYear()}}</span>
+    <span *ngSwitchDefault>{{selectedDate | date : 'LLLL'}}</span>
   </div>
 
   <!-- This fills the remaining space of the current row -->
