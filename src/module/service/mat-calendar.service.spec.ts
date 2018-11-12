@@ -1,8 +1,8 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {TestBed, inject} from '@angular/core/testing';
 
-import { MatCalendarService } from './mat-calendar.service';
+import {MatCalendarService} from './mat-calendar.service';
 
-describe('LibService', () => {
+describe('MatCalendarService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [MatCalendarService]
@@ -17,7 +17,5 @@ describe('LibService', () => {
     expect(service.sayHello()).toBe('Hello Stanger!');
   }));
 
- it('should say hello to provided user', inject([MatCalendarService], (service: MatCalendarService) => {
-    expect(service.sayHello('ng-hacker')).toBe('Hello ng-hacker!');
-  }));
+
 });
