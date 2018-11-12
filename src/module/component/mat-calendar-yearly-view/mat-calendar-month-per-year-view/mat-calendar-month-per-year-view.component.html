@@ -1,6 +1,6 @@
 <mat-card mat-ripple>
   <mat-card-header>
-    <mat-card-title>{{currentDate |date : "MMMM"}}</mat-card-title>
+    <mat-card-title>{{selectedDate |date : "MMMM"}}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <table class="mat-calendar-table">
@@ -18,7 +18,7 @@
              [todayValue]="_todayDate"
              [selectedValue]="_selectedDate"
              [labelMinRequiredCells]="3"
-             [activeCell]="nativeDateAdapter.getDate(currentDate) - 1">
+             [activeCell]="nativeDateAdapter.getDate(selectedDate) - 1">
       </tbody>
     </table>
 
