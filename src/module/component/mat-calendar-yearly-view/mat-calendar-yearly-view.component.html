@@ -7,18 +7,17 @@
       <mat-icon>chevron_right</mat-icon>
     </button>
   </div>
+
   <div fxLayout="row wrap"
        fxLayout.lt-sm="column"
        fxLayoutGap="32px grid"
        fxLayoutAlign="center">
-    <ng-container *ngFor="let monthIndex of[0,1,2,3,4,5,6,7,8,9,10,11]">
-
-      <mat-calendar-month-pre-year-view fxFlex="0 1 calc(33.3% - 32px)"
-                                        fxFlex.lt-md="0 1 calc(50% - 32px)"
-                                        fxFlex.lt-sm="100%"
-                                        [month]="monthIndex"
-                                        [year]="selectedDate.getFullYear()">
-      </mat-calendar-month-pre-year-view>
-    </ng-container>
+    <mat-calendar-month-pre-year-view *ngFor="let monthIndex of[0,1,2,3,4,5,6,7,8,9,10,11]"
+                                      fxFlex="0 1 calc(33.3% - 32px)"
+                                      fxFlex.lt-md="0 1 calc(50% - 32px)"
+                                      fxFlex.lt-sm="100%"
+                                      [month]="monthIndex"
+                                      [year]="selectedDate.getFullYear()">
+    </mat-calendar-month-pre-year-view>
   </div>
 </div>
