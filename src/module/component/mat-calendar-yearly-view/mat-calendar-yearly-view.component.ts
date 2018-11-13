@@ -1,5 +1,5 @@
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {MatCalendarService} from '../../..';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {MatCalendarService} from '../../service/mat-calendar.service';
 import {Subscription} from 'rxjs/internal/Subscription';
 
 @Component({
@@ -13,8 +13,7 @@ export class MatCalendarYearlyViewComponent implements OnInit, OnDestroy {
   year: number;
   $onDateResetSubscription: Subscription;
 
-  constructor(public calendarService: MatCalendarService,
-              private ref: ChangeDetectorRef) {
+  constructor(public calendarService: MatCalendarService) {
     // this.ref.detach();
     this.selectedDate = this.calendarService.selectedDate;
     this.year = this.selectedDate.getFullYear();
@@ -41,13 +40,13 @@ export class MatCalendarYearlyViewComponent implements OnInit, OnDestroy {
     console.log('next year: ', this.year);
     console.log('selectedDate: ', this.selectedDate);
     console.log('calendarService.selectedDate: ', this.calendarService.selectedDate);
-    this.ref.detectChanges();
+    // this.ref.detectChanges();
   }
 
   previousYear() {
     this.selectedDate.setFullYear(--this.year);
     console.log('previous year: ', this.year);
-    this.ref.detectChanges();
+    // this.ref.detectChanges();
   }
 
   resetYear() {
