@@ -40,5 +40,10 @@ export class MatCalendarComponent implements OnInit, OnDestroy {
     }
   }
 
+  reset() {
+    this.calendarService.reset();
+    this.selectedDate = this.calendarService.selectedDate;
+  }
+
 }
 
