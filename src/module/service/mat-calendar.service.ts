@@ -9,13 +9,14 @@ const moment = _moment;
 export class MatCalendarService {
 
   currentDate: Date = new Date();
-  selectedDate: Date = new Date();
+  selectedDate: Date;
 
   // events
   onViewChanged: EventEmitter<MatCalendarView> = new EventEmitter<MatCalendarView>();
   onDateReset: EventEmitter<Date> = new EventEmitter<Date>();
 
   constructor(private _nativeDateAdapter: NativeDateAdapter) {
+    this.selectedDate = this._nativeDateAdapter.clone(this.currentDate);
   }
 
   reset() {
