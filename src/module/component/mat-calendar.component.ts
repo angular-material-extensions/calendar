@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {MatCalendarService, MatCalendarView} from '../..';
 import {Subscription} from 'rxjs/internal/Subscription';
+import {MatCalendarService} from '../service/mat-calendar.service';
+import {MatCalendarView} from '../type/mat-calendar-view.type';
 
 
 @Component({
