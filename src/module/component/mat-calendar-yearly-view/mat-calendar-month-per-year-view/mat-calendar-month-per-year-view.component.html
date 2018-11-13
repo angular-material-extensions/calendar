@@ -1,4 +1,5 @@
-<mat-card mat-ripple>
+<mat-card *ngIf="month && year"
+          mat-ripple>
   <mat-card-header>
     <mat-card-title>{{selectedDate |date : "MMMM"}}</mat-card-title>
   </mat-card-header>

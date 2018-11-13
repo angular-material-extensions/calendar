@@ -36,7 +36,8 @@ export class MatCalendarMonthPerYearViewComponent implements OnInit, OnChanges {
 
   selectedDate: Date = new Date();
 
-  constructor(@Optional() @Inject(MAT_DATE_FORMATS)
+  constructor(@Optional()
+              @Inject(MAT_DATE_FORMATS)
               private _dateFormats: MatDateFormats,
               public nativeDateAdapter: NativeDateAdapter) {
 
@@ -52,20 +53,20 @@ export class MatCalendarMonthPerYearViewComponent implements OnInit, OnChanges {
 
     this._weekdays = weekdays.slice(firstDayOfWeek).concat(weekdays.slice(0, firstDayOfWeek));
     this._todayDate = this._getDateInCurrentMonth(this.nativeDateAdapter.today());
-
-    // console.log('this._weekdays = ', this._weekdays);
   }
 
   ngOnInit() {
-    this.selectedDate.setMonth(this.month);
-    this.selectedDate.setFullYear(this.year);
-    this.init();
-    console.log('on init: ', this.selectedDate);
+    if (this.month && this.year) {
+      this.selectedDate.setMonth(this.month);
+      this.selectedDate.setFullYear(this.year);
+      this.init();
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.year) {
       this.year = changes.year.currentValue;
+      // console.log('changes occurred: ', changes);
     }
   }
 
