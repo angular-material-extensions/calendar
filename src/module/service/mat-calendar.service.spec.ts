@@ -14,4 +14,8 @@ describe('MatCalendarService', () => {
     expect(service).toBeTruthy();
   }));
 
+  it('should selected date be a clone of the current date', inject([MatCalendarService], (service: MatCalendarService) => {
+    expect(service.currentDate).toEqual(service.selectedDate);
+  }));
+
 });
