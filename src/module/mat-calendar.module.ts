@@ -13,7 +13,7 @@ import {
 } from '@angular/material';
 
 import {MatCalendarComponent} from './component/mat-calendar.component';
-import {MatCalendarService} from './service/mat-calendar.service';
+import {MatCalendarService} from './services/mat-calendar.service';
 import {MatCalendarMonthlyViewComponent} from './component/mat-calendar-monthly-view/mat-calendar-monthly-view.component';
 import {MatCalendarYearlyViewComponent} from './component/mat-calendar-yearly-view/mat-calendar-yearly-view.component';
 import {
@@ -25,7 +25,7 @@ import {NativeDateAdapter} from '@angular/material';
 // Export module's public API
 export {MatCalendarView} from './type/mat-calendar-view.type';
 export {MatCalendarComponent} from './component/mat-calendar.component';
-export {MatCalendarService} from './service/mat-calendar.service';
+export {MatCalendarService} from './services/mat-calendar.service';
 
 @NgModule({
   imports: [
