@@ -31,5 +31,8 @@
   <ng-container *ngSwitchCase="'yearly'">
     <mat-calendar-yearly-view></mat-calendar-yearly-view>
   </ng-container>
+  <ng-container *ngSwitchCase="'monthly'">
+    <mat-calendar-monthly-view></mat-calendar-monthly-view>
+  </ng-container>
   <div *ngSwitchDefault>{{currentDate | date : 'LLLL'}}</div>
 </div>

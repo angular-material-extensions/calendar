@@ -1,5 +1,4 @@
-<mat-card *ngIf="month && year"
-          mat-ripple>
+<mat-card mat-ripple>
   <mat-card-header>
     <mat-card-title>{{selectedDate |date : "MMMM"}}</mat-card-title>
   </mat-card-header>
@@ -17,7 +16,7 @@
              [label]=""
              [rows]="_weeks"
              [todayValue]="_todayDate"
-             [selectedValue]="_selectedDate"
+             [selectedValue]="selectedDate"
              [labelMinRequiredCells]="3"
              [activeCell]="nativeDateAdapter.getDate(selectedDate) - 1">
       </tbody>

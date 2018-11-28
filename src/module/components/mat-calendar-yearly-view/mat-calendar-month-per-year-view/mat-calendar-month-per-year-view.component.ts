@@ -36,8 +36,7 @@ export class MatCalendarMonthPerYearViewComponent implements OnInit, OnChanges {
 
   selectedDate: Date = new Date();
 
-  constructor(@Optional()
-              @Inject(MAT_DATE_FORMATS)
+  constructor(@Optional() @Inject(MAT_DATE_FORMATS)
               private _dateFormats: MatDateFormats,
               public nativeDateAdapter: NativeDateAdapter) {
 
@@ -56,11 +55,10 @@ export class MatCalendarMonthPerYearViewComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    if (this.month && this.year) {
-      this.selectedDate.setMonth(this.month);
-      this.selectedDate.setFullYear(this.year);
-      this.init();
-    }
+    console.log(`month = ${this.month} | year =  ${this.year}`);
+    this.selectedDate.setMonth(this.month);
+    this.selectedDate.setFullYear(this.year);
+    this.init();
   }
 
   ngOnChanges(changes: SimpleChanges): void {

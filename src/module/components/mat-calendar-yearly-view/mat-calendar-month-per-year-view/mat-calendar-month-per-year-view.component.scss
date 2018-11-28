@@ -74,5 +74,25 @@ $mat-calendar-controls-vertical-padding: 5%;
 
 .mat-calendar-table-header-divider::after {
   //background: mat-color($foreground, divider);
-  background: mat-color(grey, divider);
+  //background: mat-color(grey, divider);
+  background: blue;
+}
+
+
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover,
+.cdk-keyboard-focused .mat-calendar-body-active,
+.cdk-program-focused .mat-calendar-body-active {
+  & > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
+    //background-color: mat-color($background, hover);
+    background-color: red;
+  }
+}
+
+.mat-calendar-body-disabled > .mat-calendar-body-selected {
+  //background-color: fade-out(mat-color($palette), $mat-datepicker-selected-fade-amount);
+  background-color: green;
+}
+
+.mat-calendar-body-today.mat-calendar-body-selected {
+  box-shadow: inset 0 0 0 1px green;
 }
