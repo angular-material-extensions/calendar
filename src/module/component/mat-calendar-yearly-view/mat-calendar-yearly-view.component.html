@@ -1,0 +1,23 @@
+<div fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <button mat-icon-button color="primary" (click)="previousYear()">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <button mat-icon-button color="primary" (click)="nextYear()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+
+  <div fxLayout="row wrap"
+       fxLayout.lt-sm="column"
+       fxLayoutGap="32px grid"
+       fxLayoutAlign="center">
+    <mat-calendar-month-pre-year-view *ngFor="let monthIndex of[0,1,2,3,4,5,6,7,8,9,10,11]"
+                                      fxFlex="0 1 calc(33.3% - 32px)"
+                                      fxFlex.lt-md="0 1 calc(50% - 32px)"
+                                      fxFlex.lt-sm="100%"
+                                      [month]="monthIndex"
+                                      [year]="selectedDate.getFullYear()">
+    </mat-calendar-month-pre-year-view>
+  </div>
+</div>

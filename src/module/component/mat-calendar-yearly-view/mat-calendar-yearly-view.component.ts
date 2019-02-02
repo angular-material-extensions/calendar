@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {MatCalendarService} from '../../services/mat-calendar.service';
+import {MatCalendarService} from '../../service/mat-calendar.service';
 import {Subscription} from 'rxjs/internal/Subscription';
 
 @Component({

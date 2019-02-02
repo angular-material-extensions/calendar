@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-mat-calendar-daily-view',
+  selector: 'mat-calendar-daily-view',
   templateUrl: './mat-calendar-daily-view.component.html',
-  styleUrls: ['./mat-calendar-daily-view.component.css']
+  styleUrls: ['./mat-calendar-daily-view.component.scss']
 })
 export class MatCalendarDailyViewComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs/internal/Subscription';
-import {MatCalendarService} from '../services/mat-calendar.service';
+import {MatCalendarService} from '../service/mat-calendar.service';
 import {MatCalendarView} from '../type/mat-calendar-view.type';
 
 
@@ -18,7 +18,7 @@ export class MatCalendarComponent implements OnInit, OnDestroy {
   selectedDate: Date;
 
   @Input()
-  view: MatCalendarView = 'monthly';
+  view: MatCalendarView = 'yearly';
 
   $onViewChangedSubscription: Subscription;
 

@@ -1,0 +1,24 @@
+:host {
+  display: block;
+}
+
+.mat-calendar-table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.mat-calendar-month-view-container {
+  width: 100%;
+  padding: 2rem;
+}
+
+.mat-calendar-table-header th {
+  font-size: 1em;
+  text-align: center;
+  padding: 0 0 8px;
+}
+
+.mat-calendar-month-body-cell {
+  text-align: center;
+}

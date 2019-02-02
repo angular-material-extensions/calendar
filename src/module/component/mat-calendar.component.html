@@ -27,20 +27,9 @@
     <button mat-menu-item>Help</button>
   </mat-menu>
 </mat-toolbar>
-
-<!--calendar content-->
 <div #content [ngSwitch]="view">
   <ng-container *ngSwitchCase="'yearly'">
     <mat-calendar-yearly-view></mat-calendar-yearly-view>
-  </ng-container>
-  <ng-container *ngSwitchCase="'monthly'">
-    <mat-calendar-monthly-view></mat-calendar-monthly-view>
-  </ng-container>
-  <ng-container *ngSwitchCase="'weekly'">
-    <mat-calendar-weekly-view></mat-calendar-weekly-view>
-  </ng-container>
-  <ng-container *ngSwitchCase="'daily'">
-    <mat-calendar-daily-view></mat-calendar-daily-view>
   </ng-container>
   <div *ngSwitchDefault>{{currentDate | date : 'LLLL'}}</div>
 </div>

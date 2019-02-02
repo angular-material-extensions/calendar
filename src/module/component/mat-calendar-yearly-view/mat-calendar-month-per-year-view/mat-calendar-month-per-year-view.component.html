@@ -1,0 +1,27 @@
+<mat-card *ngIf="month && year"
+          mat-ripple>
+  <mat-card-header>
+    <mat-card-title>{{selectedDate |date : "MMMM"}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table class="mat-calendar-table">
+      <thead class="mat-calendar-table-header">
+      <tr>
+        <th *ngFor="let day of _weekdays" [attr.aria-label]="day.long">{{day.narrow}}</th>
+      </tr>
+      <tr>
+        <th class="mat-calendar-table-header-divider" colspan="7" aria-hidden="true"></th>
+      </tr>
+      </thead>
+      <tbody mat-calendar-body
+             [label]=""
+             [rows]="_weeks"
+             [todayValue]="_todayDate"
+             [selectedValue]="_selectedDate"
+             [labelMinRequiredCells]="3"
+             [activeCell]="nativeDateAdapter.getDate(selectedDate) - 1">
+      </tbody>
+    </table>
+
+  </mat-card-content>
+</mat-card>
