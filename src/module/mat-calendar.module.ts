@@ -12,19 +12,22 @@ import {
   MatCalendarBody
 } from '@angular/material';
 
-import {MatCalendarComponent} from './component/mat-calendar.component';
 import {MatCalendarService} from './services/mat-calendar.service';
-import {MatCalendarMonthlyViewComponent} from './component/mat-calendar-monthly-view/mat-calendar-monthly-view.component';
-import {MatCalendarYearlyViewComponent} from './component/mat-calendar-yearly-view/mat-calendar-yearly-view.component';
+import {MatCalendarComponent} from './components/mat-calendar.component';
+import {MatCalendarMonthlyViewComponent} from './components/mat-calendar-monthly-view/mat-calendar-monthly-view.component';
+import {MatCalendarYearlyViewComponent} from './components/mat-calendar-yearly-view/mat-calendar-yearly-view.component';
 import {
   MatCalendarMonthPerYearViewComponent
-} from './component/mat-calendar-yearly-view/mat-calendar-month-per-year-view/mat-calendar-month-per-year-view.component';
+} from './components/mat-calendar-yearly-view/mat-calendar-month-per-year-view/mat-calendar-month-per-year-view.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {NativeDateAdapter} from '@angular/material';
+import {MatCalendarWeeklyViewComponent} from './components/mat-calendar-weekly-view/mat-calendar-weekly-view.component';
+import {MatCalendarDailyViewComponent} from './components/mat-calendar-daily-view/mat-calendar-daily-view.component';
+import {CalendarDateHelper} from './services/helpers/calendar-date-helper.service';
 
 // Export module's public API
 export {MatCalendarView} from './type/mat-calendar-view.type';
-export {MatCalendarComponent} from './component/mat-calendar.component';
+export {MatCalendarComponent} from './components/mat-calendar.component';
 export {MatCalendarService} from './services/mat-calendar.service';
 
 @NgModule({
@@ -47,14 +50,16 @@ export {MatCalendarService} from './services/mat-calendar.service';
       MatCalendarComponent,
       MatCalendarYearlyViewComponent,
       MatCalendarMonthPerYearViewComponent,
-      MatCalendarMonthlyViewComponent
+      MatCalendarMonthlyViewComponent,
+      MatCalendarWeeklyViewComponent,
+      MatCalendarDailyViewComponent
     ]
 })
 export class MatCalendarModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: MatCalendarModule,
-      providers: [MatCalendarService, NativeDateAdapter]
+      providers: [MatCalendarService, CalendarDateHelper, NativeDateAdapter]
     };
   }
 }
