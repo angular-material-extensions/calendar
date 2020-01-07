@@ -101,7 +101,7 @@
     "source-map-loader": "^0.2.4",
     "to-string-loader": "^1.1.5",
     "travis-status": "^3.0.1",
-    "tsickle": "^0.33.1",
+    "tsickle": "^0.38.0",
     "tslint": "^5.14.0",
     "typescript": "~3.1.6",
     "webpack-node-externals": "^1.7.2",
