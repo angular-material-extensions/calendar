@@ -13,8 +13,8 @@ import {
 function loadPackageVersionGracefully(context: SchematicContext): string | null {
   try {
     context.logger.log('info', `🧟‍ @angular-material-extensions/pages
-     is using the following version ${require(`../../package.json`).version}`);
-    return require(`../../package.json`).version;
+     is using the following version ${require(`../../package2.json`).version}`);
+    return require(`../../package2.json`).version;
   } catch {
     return null;
   }

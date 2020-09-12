@@ -564,7 +564,7 @@ gulp.task('deploy:demo', (cb) => {
 gulp.task('test', (cb) => {
   let isTravis = !!process.env.TRAVIS;
   return jestCli.runCLI({
-    config: require('./package.json').jest,
+    config: require('./package2.json').jest,
     coverage: true,
     runInBand: isTravis,
     ci: isTravis
@@ -578,14 +578,14 @@ gulp.task('test:ci', ['clean'], (cb) => {
 });
 
 gulp.task('test:watch', (cb) => {
-  return jestCli.runCLI({config: require('./package.json').jest, watch: true}, ".").then(({results}) => {
+  return jestCli.runCLI({config: require('./package2.json').jest, watch: true}, ".").then(({results}) => {
     if (!results.success) throw new Error('There are test failures!');
   });
 });
 
 gulp.task('test:watch-no-cc', (cb) => {//no coverage (useful for debugging failing tests in browser)
   return jestCli.runCLI({
-    config: require('./package.json').jest,
+    config: require('./package2.json').jest,
     watch: true,
     coverage: false
   }, ".").then(({results}) => {
