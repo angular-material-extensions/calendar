@@ -123,6 +123,46 @@
           }
         }
       }
+    },
+    "@angular-material-extensions/calendar": {
+      "projectType": "library",
+      "root": "projects/angular-material-extensions/calendar",
+      "sourceRoot": "projects/angular-material-extensions/calendar/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/angular-material-extensions/calendar/tsconfig.lib.json",
+            "project": "projects/angular-material-extensions/calendar/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-material-extensions/calendar/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-material-extensions/calendar/src/test.ts",
+            "tsConfig": "projects/angular-material-extensions/calendar/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-material-extensions/calendar/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-material-extensions/calendar/tsconfig.lib.json",
+              "projects/angular-material-extensions/calendar/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-material-calendar-demo",

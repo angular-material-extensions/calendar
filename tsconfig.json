@@ -15,6 +15,12 @@
     },
     {
       "path": "./e2e/tsconfig.json"
+    },
+    {
+      "path": "./projects/angular-material-extensions/calendar/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/angular-material-extensions/calendar/tsconfig.spec.json"
     }
 ]
 }
