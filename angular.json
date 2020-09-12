@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-material-calendar-demo"
+    }
+  },
+  "defaultProject": "angular-material-calendar-demo",
+  "cli": {
+    "analytics": "d4182202-d5cd-4f46-a361-502d8255a9f8"
+  }
 }
