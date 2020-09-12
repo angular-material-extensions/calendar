@@ -1,11 +1,60 @@
 {
   "name": "@angular-material-extensions/calendar",
+  "description": "angular responsive calendar built with material design for desktop and mobile",
   "version": "0.0.1",
+  "homepage": "https://github.com/angular-material-extensions/calendar",
+  "author": {
+    "name": "Anthony Nahas",
+    "url": "https://github.com/angular-material-extensions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/angular-material-extensions/calendar.git"
+  },
+  "license": "MIT",
+  "schematics": "./schematics/collection.json",
+  "keywords": [
+    "angular",
+    "angular library",
+    "library",
+    "calendar",
+    "day view",
+    "week view",
+    "month view",
+    "day summary",
+    "responsive"
+  ],
+  "bugs": {
+    "url": "https://github.com/angular-material-extensions/calendar/issues"
+  },
+  "scripts": {
+    "build": "../../../node_modules/.bin/ng build @angular-material-extensions/calendar --prod",
+    "build:schematics": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "clean": "rm -rf ../../../dist",
+    "lint": "../../../node_modules/.bin/ng lint @angular-material-extensions/calendar",
+    "resync:readme": "rsync -a ../../../README.md ../../../dist/angular-material-extensions/calendar/",
+    "postbuild": "npm run resync:readme",
+    "prepublish": "npm run build",
+    "release:patch": "../../../node_modules/.bin/release-it --patch --ci ",
+    "release:minor": "../../../node_modules/.bin/release-it --minor --ci",
+    "release:major": "../../../node_modules/.bin/release-it --major --ci --no-git.requireCleanWorkingDir",
+    "release:version": "../../../node_modules/.bin/release-it 2.2.0 --ci --no-git.requireCleanWorkingDir",
+    "ng:test": "../../../node_modules/.bin/ng test @angular-material-extensions/calendar",
+    "test": "../../../node_modules/.bin/jest --coverage",
+    "test:watch": "../../../node_modules/.bin/jest --coverage --watch"
+  },
   "peerDependencies": {
     "@angular/common": "^10.0.14",
-    "@angular/core": "^10.0.14"
+    "@angular/core": "^10.0.14",
+    "@angular/cdk": "^10.2.0",
+    "@angular/material": "^10.2.0",
+    "@angular/flex-layout": "^10.0.0-beta.32",
+    "moment": "^2.27.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   }
 }
