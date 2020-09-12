@@ -21,6 +21,9 @@
     },
     {
       "path": "./projects/angular-material-extensions/calendar/tsconfig.spec.json"
+    },
+    {
+      "path": "./tsconfig.server.json"
     }
 ]
 }
